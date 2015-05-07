@@ -24,11 +24,11 @@ public class Driver implements WebDriver {
 	
 	public Driver(String sDeviceBrowser){
 		this.sDevice = sDeviceBrowser;
-		testSimulator(sDeviceBrowser);
+		getDriver(sDeviceBrowser);
 	}
 	
 	//@Test
-	public WebDriver testSimulator(String sDeviceBrowser){
+	public WebDriver getDriver(String sDeviceBrowser){
 		
 		
 		
