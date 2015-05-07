@@ -2,39 +2,65 @@ package org.pcn.pccraft.framework;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
+import java.util.Set;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.Test;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 
-public class Driver {
+public class Driver implements WebDriver {
 	
-	@Test
-	public void testSimulator(){
+	String sDevice="";
+	
+	public Driver(String sDeviceBrowser){
+		this.sDevice = sDeviceBrowser;
+		testSimulator(sDeviceBrowser);
+	}
+	
+	//@Test
+	public WebDriver testSimulator(String sDeviceBrowser){
 		
-		//String sDevice = "AndroidEmulator";
-		//String sDevice = "AndroidRealDevice";
-		String sDevice = "iOSEmulator";
-		//String sDevice = "iOSRealDevice";
+		
+		
+		//sDevice = "AndroidEmulator";
+		//sDevice = "AndroidRealDevice";
+		//sDevice = "iOSEmulator";
+		//sDevice = "iOSRealDevice";
+			
+		sDevice = "Firefox";
 		
 		WebDriver driver = null;
 		
 		DesiredCapabilities capabilitiesANDROID = new DesiredCapabilities();
 		DesiredCapabilities capabilitiesIOS = new DesiredCapabilities();
+		DesiredCapabilities capabilities;
 		
-		switch(sDevice){
+		switch(sDeviceBrowser){
 			
 			case "Chrome":
 				break;
 			case "Firefox":
+				//driver = new FirefoxDriver();
+				
+				capabilities = DesiredCapabilities.firefox();
+                driver = new FirefoxDriver(capabilities);
 				break;
 			case "InternetExplorer":
 				break;
 			case "Safari":
+				//DesiredCapabilities capabilities;
+				capabilities = DesiredCapabilities.safari();
+                driver = new SafariDriver(capabilities);
 				break;
 			
 			case "AndroidEmulator":
@@ -96,7 +122,85 @@ public class Driver {
 				break;
 		}
 		
-		driver.get("http://nike.com");
+		return driver;
+	}
+
+	@Override
+	public void close() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public WebElement findElement(By arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<WebElement> findElements(By arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void get(String arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getCurrentUrl() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getPageSource() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getTitle() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getWindowHandle() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<String> getWindowHandles() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Options manage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Navigation navigate() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void quit() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public TargetLocator switchTo() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 
