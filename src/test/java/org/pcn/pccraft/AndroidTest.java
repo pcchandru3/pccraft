@@ -2,6 +2,8 @@ package org.pcn.pccraft;
 
 
 
+import io.appium.java_client.android.AndroidDriver;
+
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -15,7 +17,7 @@ import org.testng.annotations.Test;
 
 //import android.support
 
-public class SampleTest {
+public class AndroidTest {
 	
 	//@Test
 	public void test() throws InterruptedException{
@@ -25,16 +27,33 @@ public class SampleTest {
 		//DeviceBrowsers. deviceBrowser = "";
 		
 		
-		String sDeviceBrowser = DeviceBrowsers.Android_NativeApp.toString();
+		//String sDeviceBrowser = DeviceBrowsers.Android_NativeApp.toString();
 		
 		
-		WebDriver d;// = new Driver(DeviceBrowsers.AndroidDevice_WebView_Chrome);
+		AndroidDriver d;// = new Driver(DeviceBrowsers.AndroidDevice_WebView_Chrome);
 		
 		
-		d =  Driver.getWebDriver(DeviceBrowsers.Android_NativeApp);
+		d =   Driver.getAndroidDriver(DeviceBrowsers.Android_NativeApp);
 		
 		
-		WebElement x = d.findElement(By.name("Keypad"));
+		
+		
+		//d.scrollToExact("Jayram");
+		
+		
+		System.out.println(d.getContext());
+		
+		
+		d.findElementByAndroidUIAutomator("UiSelector().text(\"Keypad\")").click();
+		
+		
+		WebElement x = d.findElement(By.name("Jayram"));
+		x.click();
+		
+	
+	
+		
+		x = d.findElement(By.name("Keypad"));
 		x.click();
 		
 		//x.sendKeys("scroll(0, 50);");
@@ -42,7 +61,7 @@ public class SampleTest {
 		
 		//UiScrollable settings = new UiScrollable(new UiSelector().className("android.widget.ListView")); 
 		
-		/*
+		
 		String y = "1";
 		
 		x = d.findElement(By.name(y));
@@ -56,9 +75,9 @@ public class SampleTest {
 		x = d.findElement(By.id("com.android.contacts:id/dialButton"));
 		x.click();
 		
-		*/
 		
-		((JavascriptExecutor) d).executeScript("scroll(0, 50);");
+		
+		//((JavascriptExecutor) d).executeScript("scroll(0, 50);");
 		
 		//x = d.findElement(By.xpath("//android.widget.ImageButton[@resource-id='com.android.contacts:id/dialButton']"));
 		//x.click();
