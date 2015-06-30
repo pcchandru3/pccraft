@@ -6,6 +6,7 @@ import io.appium.java_client.android.AndroidDriver;
 
 import java.util.concurrent.TimeUnit;
 
+//import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -19,8 +20,8 @@ import org.testng.annotations.Test;
 
 public class AndroidTest {
 	
-	//@Test
-	public void test() throws InterruptedException{
+	@Test
+	public  void test() throws InterruptedException{
 		//Driver d = new Driver();
 		//d
 		
@@ -30,9 +31,41 @@ public class AndroidTest {
 		//String sDeviceBrowser = DeviceBrowsers.Android_NativeApp.toString();
 		
 		
-		AndroidDriver d;// = new Driver(DeviceBrowsers.AndroidDevice_WebView_Chrome);
+		AndroidDriver d; // = new Driver(DeviceBrowsers.AndroidDevice_WebView_Chrome);
 		
 		
+		d = Driver.getAndroidDriver(DeviceBrowsers.AndroidDevice_WebView_Chrome);
+		
+		Thread.sleep(3000);
+		
+		d.get("http://nike.com");
+		Thread.sleep(3000);
+		
+		
+		d.findElement(By.cssSelector(".cart")).click();
+		
+		while (!d.findElement(By.cssSelector(".search-field-container>input")).isDisplayed()){
+			if(d.findElement(By.cssSelector(".search-field-container>input")).isDisplayed()){
+				System.out.println("Pass");
+				break;
+			}
+		}
+		
+		Thread.sleep(3000);
+		
+		//d.findElement(By.cssSelector(".search")).click();
+		d.findElement(By.cssSelector(".search-field-container>input")).sendKeys("test");
+		
+		
+		
+		d.findElement(By.cssSelector(".cart")).getCssValue("font-size");
+		
+		
+		
+		//d.wait(3000);
+		
+		
+		/*
 		d =   Driver.getAndroidDriver(DeviceBrowsers.Android_NativeApp);
 		
 		
@@ -94,7 +127,7 @@ public class AndroidTest {
 		
 		//d.get("http://nike.com");
 		
-		
+		*/
 		
 	}
 

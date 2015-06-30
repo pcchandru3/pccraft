@@ -24,7 +24,7 @@ import org.testng.annotations.Test;
 
 public class IOSTest {
 	
-	@Test
+	//@Test
 	public void test() throws InterruptedException{
 		
 		//File app = new File("/Users/cpanag/01WorkingFolder/My-GitHub/pccraft/src/test/resources/iOS/UICatalog.app");

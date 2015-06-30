@@ -67,7 +67,8 @@ public class Driver implements WebDriver {
 				capabilitiesANDROID.setCapability("platformName", "Android");
 				capabilitiesANDROID.setCapability("platformVersion", "4.4");
 				capabilitiesANDROID.setCapability("browserName", "Chrome");
-				capabilitiesANDROID.setCapability("deviceName", "c03cb826");
+				//capabilitiesANDROID.setCapability("deviceName", "c03cb826");
+				capabilitiesANDROID.setCapability("deviceName", "OCP");
 				try {
 					driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), capabilitiesANDROID);
 				} catch (MalformedURLException e1) {
@@ -79,7 +80,10 @@ public class Driver implements WebDriver {
 				capabilitiesANDROID.setCapability("platformName", "Android");
 				capabilitiesANDROID.setCapability("platformVersion", "4.4");
 				capabilitiesANDROID.setCapability("browserName", "Browser");
-				capabilitiesANDROID.setCapability("deviceName", "c03cb826");
+				//capabilitiesANDROID.setCapability("deviceName", "cba7bab0");
+				//capabilitiesANDROID.setCapability("deviceName", "4d008d9843e6a073");
+				capabilitiesANDROID.setCapability("deviceName", "OCP");
+				
 				try {
 					driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), capabilitiesANDROID);
 				} catch (MalformedURLException e1) {
